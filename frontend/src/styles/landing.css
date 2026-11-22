@@ -1,0 +1,145 @@
+/* Landing page styles — Snigdha: Frontend UI */
+
+/* Hero */
+.hero {
+  padding: 5rem 0 4rem;
+  border-bottom: 1.5px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+.hero__grid-bg {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0.04;
+  background-image:
+    linear-gradient(var(--ink) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ink) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.hero__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  margin-bottom: 1rem;
+  border: 1.5px solid currentColor;
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+}
+.hero__title { margin-bottom: 1.25rem; }
+.hero__title em {
+  font-style: italic;
+  color: var(--cobalt);
+}
+.hero__subtitle { font-size: 1.1rem; max-width: 50ch; margin-bottom: 2rem; }
+.hero__cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.hero__card-stack {
+  position: relative;
+  padding: 1rem;
+}
+.hero__evidence-card {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.4rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+.hero__evidence-card + .hero__evidence-card {
+  margin-top: 0.75rem;
+}
+.hero__evidence-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--cobalt);
+  border-radius: 4px 0 0 4px;
+}
+.hero__evidence-card--verified::before { background: var(--success); }
+
+/* How It Works */
+.how-it-works { padding: 5rem 0; border-bottom: 1.5px solid var(--border); }
+.steps-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+.step { text-align: center; }
+.step__number {
+  width: 44px; height: 44px;
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
+}
+.step__connector {
+  flex: 1; height: 1px;
+  background: var(--border);
+  align-self: center;
+}
+
+/* Challenge Sample Section */
+.challenges-section { padding: 5rem 0; background: var(--bg-alt); border-bottom: 1.5px solid var(--border); }
+.challenge-preview-card {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  transition: box-shadow var(--transition);
+}
+.challenge-preview-card:hover { box-shadow: var(--shadow-md); }
+.challenge-preview-card__category {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  margin-bottom: 0.4rem;
+}
+.challenge-preview-card__title { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+.challenge-preview-card__summary { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.6; }
+.challenge-preview-card__footer { display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+
+/* Employer Section */
+.employer-section { padding: 5rem 0; border-bottom: 1.5px solid var(--border); }
+.blind-review-demo {
+  background: var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  color: #fff;
+}
+.blind-candidate-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.9rem 1rem;
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255,255,255,0.1);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.blind-candidate-row + .blind-candidate-row { margin-top: 0.5rem; }
+.candidate-id { font-family: var(--font-mono); font-size: 0.82rem; opacity: 0.6; }
+
+/* Footer */
+.footer {
+  padding: 2.5rem 0;
+  border-top: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+}
+.footer__copy { font-size: 0.82rem; color: var(--ink-faint); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero__inner { grid-template-columns: 1fr; gap: 2rem; }
+  .hero__card-stack { display: none; }
+  .hero { padding: 3rem 0; }
+}
