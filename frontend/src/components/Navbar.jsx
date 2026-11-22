@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { Menu, X, BookOpen, LogOut, User, LayoutDashboard } from "lucide-react";
+import { useTheme } from "../context/ThemeContext";
+import { Menu, X, BookOpen, LogOut, User, LayoutDashboard, Sun, Moon } from "lucide-react";
 import "../styles/navbar.css";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -60,6 +62,21 @@ export default function Navbar() {
         </ul>
 
         <div className="navbar__actions">
+          {/* Theme Toggle Button in top right corner */}
+          <button
+            type="button"
+            className="theme-toggle-btn"
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            {theme === "dark" ? (
+              <Sun size={17} style={{ color: "#FBBF24" }} />
+            ) : (
+              <Moon size={17} style={{ color: "var(--ink-muted)" }} />
+            )}
+          </button>
+
           {user ? (
             <>
               <div className="navbar__user-pill hide-mobile">
