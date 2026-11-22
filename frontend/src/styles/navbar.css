@@ -8,6 +8,7 @@
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1.5px solid var(--border);
   height: 64px;
+  transition: background-color var(--transition), border-color var(--transition);
 }
 .navbar__inner {
   display: flex;
@@ -65,6 +66,32 @@
 }
 .navbar__link.active { font-weight: 600; }
 .navbar__actions { display: flex; align-items: center; gap: 0.5rem; }
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  transition: all var(--transition);
+  padding: 0;
+  flex-shrink: 0;
+}
+.theme-toggle-btn:hover {
+  background: var(--bg-alt);
+  border-color: var(--border-dark);
+}
+.theme-toggle-btn:focus-visible {
+  outline: 3px solid var(--cobalt);
+  outline-offset: 2px;
+}
+
 .navbar__user-pill {
   display: flex;
   align-items: center;

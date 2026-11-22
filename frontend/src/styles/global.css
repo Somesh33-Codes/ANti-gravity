@@ -4,11 +4,12 @@
    
    Design system: Field notebook / skill ledger / career portfolio
    Palette: Warm off-white (#F9F8F5) + Deep ink (#141923) + Electric cobalt (#1E6FD9)
+   Dark Palette: Deep navy ink (#0E131F) + Parchment white (#F3F4F6)
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* ── Custom Properties ─────────────────────────────────────── */
+/* ── Custom Properties (Light Theme Default) ────────────────── */
 :root {
   --bg:           #F9F8F5;
   --bg-alt:       #F2F0EB;
@@ -46,6 +47,87 @@
   --transition:   0.18s ease;
 }
 
+/* ── Dark Theme Overrides ──────────────────────────────────── */
+[data-theme="dark"] {
+  --bg:           #0E131F;
+  --bg-alt:       #161D2E;
+  --ink:          #F3F4F6;
+  --ink-muted:    #94A3B8;
+  --ink-faint:    #64748B;
+  --cobalt:       #3B82F6;
+  --cobalt-hover: #60A5FA;
+  --cobalt-pale:  rgba(59, 130, 246, 0.15);
+  --tangerine:    #F97316;
+  --tangerine-pale: rgba(249, 115, 22, 0.15);
+  --success:      #10B981;
+  --success-pale: rgba(16, 185, 129, 0.15);
+  --warning:      #F59E0B;
+  --warning-pale: rgba(245, 158, 11, 0.15);
+  --danger:       #EF4444;
+  --danger-pale:  rgba(239, 68, 68, 0.15);
+
+  --border:       rgba(255, 255, 255, 0.12);
+  --border-dark:  rgba(255, 255, 255, 0.22);
+
+  --shadow-xs:    0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-sm:    0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md:    0 4px 20px rgba(0, 0, 0, 0.5);
+  --shadow-lg:    0 8px 40px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .challenge-preview-card,
+[data-theme="dark"] .hero__evidence-card {
+  background: #151C2C;
+}
+
+[data-theme="dark"] .navbar {
+  background: rgba(14, 19, 31, 0.94);
+  border-bottom-color: var(--border);
+}
+
+[data-theme="dark"] .navbar__user-pill {
+  background: #161D2E;
+  color: var(--ink);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .form-textarea,
+[data-theme="dark"] .form-select {
+  background: #131A29;
+  color: var(--ink);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .code-textarea {
+  background: #0B0F19;
+  color: #E2E8F0;
+}
+
+[data-theme="dark"] pre {
+  background: #0B0F19;
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .badge--skill {
+  background: var(--bg-alt);
+  color: var(--ink-muted);
+}
+
+[data-theme="dark"] .badge--beginner {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34D399;
+}
+[data-theme="dark"] .badge--intermediate {
+  background: rgba(249, 115, 22, 0.15);
+  color: #FB923C;
+}
+[data-theme="dark"] .badge--advanced {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60A5FA;
+}
+
 /* ── Reset & Base ──────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -61,6 +143,7 @@ body {
   color: var(--ink);
   line-height: 1.6;
   min-height: 100vh;
+  transition: background-color var(--transition), color var(--transition);
 }
 
 /* ── Typography ────────────────────────────────────────────── */
@@ -187,7 +270,7 @@ pre {
   border-radius: var(--radius);
   padding: 1.5rem;
   box-shadow: var(--shadow-xs);
-  transition: box-shadow var(--transition), border-color var(--transition);
+  transition: box-shadow var(--transition), border-color var(--transition), background-color var(--transition);
 }
 .card--hover:hover { box-shadow: var(--shadow-md); border-color: var(--border-dark); }
 .card--evidence {
